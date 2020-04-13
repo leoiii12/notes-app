@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="whiteboards-container"></div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="onClickUndo($event)" [disabled]="hasUndo === false">
+        <ion-icon slot="icon-only" name="arrow-undo"></ion-icon>
+      </ion-button>
+      <ion-button (click)="onClickRedo($event)" [disabled]="hasRedo === false">
+        <ion-icon slot="icon-only" name="arrow-redo"></ion-icon>
+      </ion-button>
+
+      <ion-button (click)="onClickText($event)">
+        <ion-icon
+          slot="icon-only"
+          class="fas fa-font"
+          [ngStyle]="{ opacity: whiteboardControls.selectedMode === whiteboardExports.Mode.FreeTexting ? '1' : '0.5' }"
+        ></ion-icon>
+      </ion-button>
+      <ion-button (click)="onClickPencil($event)">
+        <ion-icon
+          slot="icon-only"
+          class="fas fa-pen"
+          [ngStyle]="{ opacity: whiteboardControls.selectedMode === whiteboardExports.Mode.FreeDrawing ? '1' : '0.5' }"
+        ></ion-icon>
+      </ion-button>
+      <ion-button (click)="onClickEraser($event)">
+        <ion-icon
+          slot="icon-only"
+          class="fas fa-eraser"
+          [ngStyle]="{ opacity: whiteboardControls.selectedMode === whiteboardExports.Mode.FreeBrushing ? '1' : '0.5' }"
+        ></ion-icon>
+      </ion-button>
+
+      <ion-button (click)="onClickColorPalette($event)" [ngStyle]="{ color: whiteboardControls.selectedColor }">
+        <ion-icon slot="icon-only" name="color-palette"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
